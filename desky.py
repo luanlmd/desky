@@ -13,7 +13,6 @@ import time
 win = None
 dom = None
 ctx = None
-r_id = None
 
 def draw():
 		
@@ -26,8 +25,7 @@ def draw():
 
 	config.vars = {}
 
-	open('/tmp/%s.svg' % r_id,'w').write(dom.toxml())
-	svg = rsvg.Handle(file="/tmp/%s.svg" % r_id)
+	svg = rsvg.Handle(data=dom.toxml())
 	svg.render_cairo(ctx)
 	
 	while gtk.events_pending():
@@ -36,9 +34,6 @@ def draw():
 	#gobject.timeout_add(500,draw)
 
 def expose(win, e, dom):
-
-	global r_id
-	r_id = ''.join(random.sample(string.letters, 5))
 
 	global ctx
 	ctx = win.window.cairo_create()
