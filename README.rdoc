@@ -1,0 +1,2 @@
+Desky is a System monitor for Gnome Desktop
+All configuration is hard coded, but still easier than Conky
