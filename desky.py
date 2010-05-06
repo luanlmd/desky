@@ -15,12 +15,7 @@ def expose(win, event, dom):
 		ctx.set_source_rgba(1, 1, 1, 0)
 		print "alpha mode enabled"
 
-	
 	for v in config.vars:
-		#print dir(dom)
-		print "element " + v
-		print "value " + config.vars[v]
-		
 		e = dom.getElementById(v)
 		e = e.getElementsByTagName("tspan")[0].childNodes[0]
 		e.data = config.vars[v]
@@ -59,11 +54,6 @@ def main():
 	win.connect("expose-event", expose, dom)
 	win.show_all()
 	gtk.main()
-
-	"""while True:
-		print "true"
-		sleep(1)
-	"""
 
 if __name__ == '__main__':
 	theme = sys.argv[1]
