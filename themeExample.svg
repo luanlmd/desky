@@ -15,9 +15,21 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.47 r22583"
-   sodipodi:docname="test.svg">
+   sodipodi:docname="themeExample.svg">
   <defs
      id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2922">
+      <stop
+         style="stop-color:#ff0000;stop-opacity:1;"
+         offset="0"
+         id="stop2924" />
+      <stop
+         style="stop-color:#000000;stop-opacity:1"
+         offset="1"
+         id="stop2926" />
+    </linearGradient>
     <linearGradient
        inkscape:collect="always"
        id="linearGradient2836">
@@ -106,6 +118,22 @@
        y1="657.26416"
        x2="415"
        y2="166.61987" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2922"
+       id="linearGradient2928"
+       x1="205.19138"
+       y1="851.86584"
+       x2="235.83672"
+       y2="1124.4109"
+       gradientUnits="userSpaceOnUse" />
+    <inkscape:perspective
+       id="perspective2938"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -114,9 +142,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="276.65981"
-     inkscape:cy="469.03824"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="318.49064"
+     inkscape:cy="164.66252"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -152,15 +180,15 @@
      transform="translate(0,-902.36218)">
     <text
        xml:space="preserve"
-       style="font-size:25.8813591px;font-style:normal;font-weight:normal;fill:#008000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-       x="45.833031"
-       y="899.04626"
+       style="font-size:34.2505722px;font-style:normal;font-weight:normal;fill:#008000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="44.525349"
+       y="919.82861"
        id="var1"
        inkscape:label=""
-       transform="scale(0.93082081,1.0743206)"><tspan
+       transform="scale(0.9524516,1.0499221)"><tspan
          sodipodi:role="line"
-         x="45.833031"
-         y="899.04626"
+         x="44.525349"
+         y="919.82861"
          id="tspan2843">var1</tspan></text>
     <path
        sodipodi:type="arc"
@@ -171,6 +199,48 @@
        sodipodi:rx="256.42856"
        sodipodi:ry="107.85714"
        d="m 671.42856,380.21933 a 256.42856,107.85714 0 1 1 -512.85712,0 256.42856,107.85714 0 1 1 512.85712,0 z"
-       transform="matrix(0.29526459,0,0,0.37748343,-28.249095,812.40711)" />
+       transform="matrix(0.29526459,0,0,0.37748343,-29.259248,810.3868)" />
+    <rect
+       style="fill:#ff0000;fill-opacity:1"
+       id="rect2906"
+       width="278.87814"
+       height="72.948868"
+       x="87.633789"
+       y="974.46045"
+       ry="27.448641"
+       transform="matrix(1,0,-0.07723086,0.99701324,0,0)" />
+    <rect
+       transform="matrix(1,0,-0.07723086,0.99701324,0,0)"
+       ry="27.448641"
+       y="974.46045"
+       x="87.633789"
+       height="72.948868"
+       width="278.87814"
+       id="rect2912"
+       style="fill:url(#linearGradient2928);fill-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-size:36.51493835px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="40.404453"
+       y="979.05878"
+       id="var2"
+       inkscape:label="#text2908"
+       transform="scale(0.97819571,1.0222903)"><tspan
+         sodipodi:role="line"
+         id="tspan2910"
+         x="40.404453"
+         y="979.05878">var2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12.08077812px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="39.059689"
+       y="932.56134"
+       id="var3"
+       inkscape:label="#text2908"
+       transform="scale(0.90910355,1.0999847)"><tspan
+         sodipodi:role="line"
+         id="tspan2910-2"
+         x="39.059689"
+         y="932.56134">var3</tspan></text>
   </g>
 </svg>
