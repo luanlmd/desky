@@ -9,9 +9,9 @@ def expose(win, event, dom):
 	cr = win.window.cairo_create()
 	cr.set_source_color(win.style.fg[win.state])
 
-	e = dom.getElementById("texto")
+	e = dom.getElementById("var1")
 	e = dom.getElementsByTagName("tspan")[0].childNodes[0]
-	e.data = strftime("%Y-%m-%d %H:%M:%S")
+	e.data = strftime("%H:%M:%S")
 	print "renderizou" + e.data
 	open('/tmp/test.svg','w').write(dom.toxml())
 	

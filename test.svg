@@ -10,12 +10,12 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="744.09448819"
-   height="1052.3622047"
+   width="300"
+   height="150"
    id="svg2"
    version="1.1"
    inkscape:version="0.47 r22583"
-   sodipodi:docname="drawing.svg">
+   sodipodi:docname="test.svg">
   <defs
      id="defs4">
     <linearGradient
@@ -88,6 +88,24 @@
        x2="415"
        y2="166.61987"
        gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2836"
+       id="linearGradient2838"
+       gradientUnits="userSpaceOnUse"
+       x1="432.89038"
+       y1="657.26416"
+       x2="415"
+       y2="166.61987" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2836"
+       id="linearGradient2841"
+       gradientUnits="userSpaceOnUse"
+       x1="432.89038"
+       y1="657.26416"
+       x2="415"
+       y2="166.61987" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -98,7 +116,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
      inkscape:cx="276.65981"
-     inkscape:cy="583.32395"
+     inkscape:cy="469.03824"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -109,7 +127,11 @@
      inkscape:window-maximized="1">
     <inkscape:grid
        type="xygrid"
-       id="grid2839" />
+       id="grid2839"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -126,51 +148,29 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
-    <g
-       id="g2826"
-       transform="translate(-125.71429,-341.42857)">
-      <path
-         transform="matrix(1.8068182,0,0,1.1733333,-48.490253,-29.723727)"
-         d="m 281.42857,381.64789 c 0,29.58668 -28.1421,53.57143 -62.85714,53.57143 -34.71505,0 -62.85715,-23.98475 -62.85715,-53.57143 0,-29.58669 28.1421,-53.57143 62.85715,-53.57143 34.71504,0 62.85714,23.98474 62.85714,53.57143 z"
-         sodipodi:ry="53.57143"
-         sodipodi:rx="62.857143"
-         sodipodi:cy="381.64789"
-         sodipodi:cx="218.57143"
-         id="path2824"
-         style="fill:#ff0000;fill-opacity:1"
-         sodipodi:type="arc" />
-      <path
-         transform="matrix(1.3194445,0,0,1.1818182,32.956348,9.9601197)"
-         d="m 178.57143,345.93362 c 0,30.37567 -23.02535,55 -51.42857,55 -28.403214,0 -51.428569,-24.62433 -51.428569,-55 0,-30.37566 23.025355,-55 51.428569,-55 28.40322,0 51.42857,24.62434 51.42857,55 z"
-         sodipodi:ry="55"
-         sodipodi:rx="51.42857"
-         sodipodi:cy="345.93362"
-         sodipodi:cx="127.14286"
-         id="path3701"
-         style="fill:#000000;fill-opacity:1"
-         sodipodi:type="arc" />
-      <text
-         inkscape:label="#text3693"
-         id="texto"
-         y="432.36218"
-         x="162.85715"
-         style="font-size:40px;font-style:normal;font-weight:normal;fill:#008000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-         xml:space="preserve"><tspan
-           y="432.36218"
-           x="162.85715"
-           id="tspan3695"
-           sodipodi:role="line">[variavel]</tspan></text>
-    </g>
+     id="layer1"
+     transform="translate(0,-902.36218)">
+    <text
+       xml:space="preserve"
+       style="font-size:25.8813591px;font-style:normal;font-weight:normal;fill:#008000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="45.833031"
+       y="899.04626"
+       id="var1"
+       inkscape:label=""
+       transform="scale(0.93082081,1.0743206)"><tspan
+         sodipodi:role="line"
+         x="45.833031"
+         y="899.04626"
+         id="tspan2843">var1</tspan></text>
     <path
        sodipodi:type="arc"
-       style="fill:url(#linearGradient2842);fill-opacity:1"
+       style="fill:url(#linearGradient2841);fill-opacity:1"
        id="path2832"
        sodipodi:cx="415"
        sodipodi:cy="380.21933"
        sodipodi:rx="256.42856"
        sodipodi:ry="107.85714"
        d="m 671.42856,380.21933 a 256.42856,107.85714 0 1 1 -512.85712,0 256.42856,107.85714 0 1 1 512.85712,0 z"
-       transform="matrix(0.23955428,0,0,0.33774833,-25.129317,-53.913401)" />
+       transform="matrix(0.29526459,0,0,0.37748343,-28.249095,812.40711)" />
   </g>
 </svg>
