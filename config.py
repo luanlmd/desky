@@ -17,8 +17,11 @@ vars['var3'] = os.popen('uname -onv').read()
 
 def update():
 	vars['var1'] = strftime("%H:%M:%S")
+	print 'update'	
+	return True
 
-	# Calling update() again, 1 second after its been called
-	gobject.timeout_add(1000,update)
 
 update()
+
+# Calling update() again, 1 second after its been called
+gobject.timeout_add(1000,update)

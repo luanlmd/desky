@@ -1,6 +1,7 @@
 import cairo
 import rsvg
 import gtk
+from gtk import gdk
 from time import sleep
 import xml.dom.minidom
 import sys
@@ -10,84 +11,90 @@ import string
 import gobject
 import time
 
-win = None
-dom = None
-ctx = None
+class Desky(gtk.DrawingArea):
 
-def draw():
+	def __init__(self):
+		super(Desky, self).__init__()
+		self.dom = None
+		self.ctx = None
+		self.win = None
+		self.main()
+
+	def draw(self, ctx):
 		
-	print "drawning"
+		print "drawning"
 
-	# Look for new values in the config
-	for v in config.vars:
-		e = dom.getElementById(v)
-		e = e.getElementsByTagName("tspan")[0].childNodes[0]
+		# Look for new values in the config
+		for v in config.vars:
+			e = self.dom.getElementById(v)
+			e = e.getElementsByTagName("tspan")[0].childNodes[0]
 
-		# Change the svg using the config value
-		e.data = config.vars[v]
+			# Change the svg using the config value
+			e.data = config.vars[v]
 
-	# Clean up the config var. In the next loop only new values will be reset
-	config.vars = {}
+		# Clean up the config var. In the next loop only new values will be reset
+		config.vars = {}
 	
-	svg = rsvg.Handle(data=dom.toxml())
-	svg.render_cairo(ctx)
+		svg = rsvg.Handle(data=self.dom.toxml())
+		svg.render_cairo(ctx)
 
-	# idk if this is working like it should be, yet
-	while gtk.events_pending():
-		gtk.main_iteration(False)
+	def expose(self, win, event):
+		ctx = win.window.cairo_create()
+		self.draw(ctx)
+		
+		gobject.timeout_add(1000,self.update)
+		return False
+		
+	def update(self):
+		if self.window:
+			alloc = self.get_allocation()
+			rect = gdk.Rectangle(alloc.x, alloc.y, alloc.width, alloc.height)
+			self.window.invalidate_rect(rect, True)
+		return True
 
-	# loop	
-	#gobject.timeout_add(500,draw)
-
-def expose(win, e, dom):
-
-	global ctx
-	ctx = win.window.cairo_create()
+	def main(self):
 	
-	if win.is_composited() == False:
-		ctx.set_source_rgb(1, 1, 1)
-		print "no alpha mode available"
-	else:
-		ctx.set_source_rgba(1, 1, 1, 0)
-		print "alpha mode enabled"
+		# Creating window object and setting some configs
+		#win = gtk.Window()
+		#self.win = win
+		#win = gtk.Window(gtk.WINDOW_POPUP)
+		#win.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("blue"))
+		#win.set_keep_below(True)
+		#win.set_decorated(False)
+		#win.set_property('skip-taskbar-hint', True)
+		#win.connect("destroy", lambda w: gtk.main_quit())
+		#win.stick()
 
-	for t in dom.getElementsByTagName('text'):
-		t.setIdAttribute('id')
-	
-	draw()	
-
-	return True
-
-def main():
-
-	#win = gtk.Window(gtk.WINDOW_POPUP)
-	
-	# Creating window object and setting some configs
-	global win
-	win = gtk.Window()
-	win.set_keep_below(True)
-	win.set_decorated(False)
-	win.set_property('skip-taskbar-hint', True)
-	win.connect("destroy", lambda w: gtk.main_quit())
-
-	# Open the SVG to look for some data
-	global dom
-	dom = xml.dom.minidom.parseString(open('theme.svg').read())
+		# Open 
+		self.dom = xml.dom.minidom.parse('%s/theme.svg' % sys.path[0])
+		
+		# Make id be the id
+		for t in self.dom.getElementsByTagName('text'):
+			t.setIdAttribute('id')
 				
-	# Setting window size
-	svge = dom.getElementsByTagName('svg')[0]
-	width = svge.attributes['width'].value
-	height = svge.attributes['height'].value
-	win.connect("expose-event", expose, dom)
+		# Setting window size
+		svge = self.dom.getElementsByTagName('svg')[0]
+		width = svge.attributes['width'].value
+		height = svge.attributes['height'].value
+		self.connect("expose_event", self.expose)
 	
-	# Setting window position
-	win.resize(int(width),int(height))
-	win.move(config.x, config.y)
+		# Setting window position
+		#win.resize(int(width),int(height))
+		#win.move(config.x, config.y)
 
-	# Opening window
-	win.show_all()
-	gtk.main()
+		# Opening window
+		#win.show_all()
+		#gtk.main()
 
 if __name__ == '__main__':
-	main()
+    win = gtk.Window()
+    desky = Desky()
+
+    win.add(desky)
+    win.connect("destroy", gtk.main_quit)
+    win.show_all()
+
+    gtk.main()
+
+	
 	
