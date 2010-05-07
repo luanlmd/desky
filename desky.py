@@ -17,20 +17,26 @@ ctx = None
 def draw():
 		
 	print "drawning"
-	
+
+	# Look for new values in the config
 	for v in config.vars:
 		e = dom.getElementById(v)
 		e = e.getElementsByTagName("tspan")[0].childNodes[0]
+
+		# Change the svg using the config value
 		e.data = config.vars[v]
 
+	# Clean up the config var. In the next loop only new values will be reset
 	config.vars = {}
-
+	
 	svg = rsvg.Handle(data=dom.toxml())
 	svg.render_cairo(ctx)
-	
+
+	# idk if this is working like it should be, yet
 	while gtk.events_pending():
 		gtk.main_iteration(False)
-	
+
+	# loop	
 	#gobject.timeout_add(500,draw)
 
 def expose(win, e, dom):
