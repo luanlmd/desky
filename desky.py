@@ -13,11 +13,11 @@ import time
 
 class Desky(gtk.DrawingArea):
 
-	def __init__(self):
+	def __init__(self, win):
 		super(Desky, self).__init__()
 		self.dom = None
 		self.ctx = None
-		self.win = None
+		self.win = win
 		self.main()
 
 	def draw(self, ctx):
@@ -30,7 +30,9 @@ class Desky(gtk.DrawingArea):
 			e = e.getElementsByTagName("tspan")[0].childNodes[0]
 
 			# Change the svg using the config value
+			print "setting: %s = %s" % (v, config.vars[v])
 			e.data = config.vars[v]
+			
 
 		# Clean up the config var. In the next loop only new values will be reset
 		config.vars = {}
@@ -41,30 +43,10 @@ class Desky(gtk.DrawingArea):
 	def expose(self, win, event):
 		ctx = win.window.cairo_create()
 		self.draw(ctx)
-		
-		gobject.timeout_add(1000,self.update)
 		return False
 		
-	def update(self):
-		if self.window:
-			alloc = self.get_allocation()
-			rect = gdk.Rectangle(alloc.x, alloc.y, alloc.width, alloc.height)
-			self.window.invalidate_rect(rect, True)
-		return True
-
 	def main(self):
-	
-		# Creating window object and setting some configs
-		#win = gtk.Window()
-		#self.win = win
-		#win = gtk.Window(gtk.WINDOW_POPUP)
-		#win.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("blue"))
-		#win.set_keep_below(True)
-		#win.set_decorated(False)
-		#win.set_property('skip-taskbar-hint', True)
-		#win.connect("destroy", lambda w: gtk.main_quit())
-		#win.stick()
-
+		
 		# Open 
 		self.dom = xml.dom.minidom.parse('%s/theme.svg' % sys.path[0])
 		
@@ -79,22 +61,36 @@ class Desky(gtk.DrawingArea):
 		self.connect("expose_event", self.expose)
 	
 		# Setting window position
-		#win.resize(int(width),int(height))
-		#win.move(config.x, config.y)
+		self.win.resize(int(width),int(height))
+		self.win.move(config.x, config.y)
 
-		# Opening window
-		#win.show_all()
-		#gtk.main()
+		# Keep the window Updating
+		gobject.timeout_add(1000,self.update)
+
+	def update(self):
+		if self.window:
+			alloc = self.get_allocation()
+			rect = gdk.Rectangle(alloc.x, alloc.y, alloc.width, alloc.height)
+			self.window.invalidate_rect(rect, True)
+		return True
 
 if __name__ == '__main__':
-    win = gtk.Window()
-    desky = Desky()
 
-    win.add(desky)
-    win.connect("destroy", gtk.main_quit)
-    win.show_all()
-
-    gtk.main()
-
+    # Creating window object and setting some configs
+	win = gtk.Window()
+	#win = gtk.Window(gtk.WINDOW_POPUP)
+	win.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("blue"))
+	win.set_keep_below(True)
+	win.set_decorated(False)
+	win.set_property('skip-taskbar-hint', True)
+	win.connect("destroy", lambda w: gtk.main_quit())
+	win.stick()
 	
-	
+	desky = Desky(win)
+	win.add(desky)
+
+	win.connect("destroy", gtk.main_quit)
+
+	win.show_all()
+	gtk.main()
+		
