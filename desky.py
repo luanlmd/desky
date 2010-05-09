@@ -78,13 +78,10 @@ if __name__ == '__main__':
 
     # Creating window object and setting some configs
 	win = gtk.Window()
-	#win = gtk.Window(gtk.WINDOW_POPUP)
-	win.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("blue"))
-	win.set_keep_below(True)
-	win.set_decorated(False)
-	win.set_property('skip-taskbar-hint', True)
+	#win.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("blue"))
+	win.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DESKTOP)	
 	win.connect("destroy", lambda w: gtk.main_quit())
-	win.stick()
+
 	
 	desky = Desky(win)
 	win.add(desky)
