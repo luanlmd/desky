@@ -9,6 +9,7 @@ http://twitpic.com/1mqma5/full
 == To do:
 * Add transparency support
 * Add progress bars
+* Add photo support
 
 == Installation
 
