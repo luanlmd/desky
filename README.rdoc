@@ -1,7 +1,14 @@
 = Desky
 
 Desky is a System monitor (like Conky) for Gnome Desktop
-For now it only supports text values, it will change in the future. If you want to change it, fork this project!
+For now it only supports text values, but this is gonna change soon.
+
+See it working (I know it has just simple data, but can be easily enhanced):
+http://twitpic.com/1mqma5/full
+
+== To do:
+* Add transparency support
+* Add progress bars
 
 == Installation
 

@@ -10,8 +10,8 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="250"
-   height="600"
+   width="260.71426"
+   height="237.85716"
    id="svg2"
    version="1.1"
    inkscape:version="0.47 r22583"
@@ -870,13 +870,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="331.18167"
-     inkscape:cy="405.22145"
+     inkscape:cx="334.7531"
+     inkscape:cy="68.79289"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1680"
-     inkscape:window-height="999"
+     inkscape:window-width="1280"
+     inkscape:window-height="973"
      inkscape:window-x="0"
      inkscape:window-y="24"
      inkscape:window-maximized="1">
@@ -904,15 +904,14 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-452.36218)">
+     transform="translate(3.5714285,-449.50504)">
     <rect
        style="fill:#2b0000;fill-opacity:1"
        id="rect4893"
-       width="269.28571"
-       height="615.71429"
+       width="260.71426"
+       height="237.85716"
        x="-3.5714285"
-       y="-2.8571429"
-       transform="translate(0,452.36218)" />
+       y="449.50504" />
     <text
        xml:space="preserve"
        style="font-size:30px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
@@ -4464,7 +4463,7 @@
          x="7.008194"
          id="tspan6668"
          sodipodi:role="line"
-         style="fill-opacity:1;fill:url(#linearGradient5751)">Desky</tspan></text>
+         style="fill:url(#linearGradient5751);fill-opacity:1">Desky</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:15px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"

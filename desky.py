@@ -10,13 +10,14 @@ import random
 import string
 import gobject
 import time
+from math import floor
+import cairo
 
 class Desky(gtk.DrawingArea):
 
 	def __init__(self, win):
 		super(Desky, self).__init__()
 		self.dom = None
-		self.ctx = None
 		self.win = win
 		self.main()
 
@@ -43,6 +44,7 @@ class Desky(gtk.DrawingArea):
 	def expose(self, win, event):
 		ctx = win.window.cairo_create()
 		self.draw(ctx)
+    
 		return False
 		
 	def main(self):
@@ -61,7 +63,7 @@ class Desky(gtk.DrawingArea):
 		self.connect("expose_event", self.expose)
 	
 		# Setting window position
-		self.win.resize(int(width),int(height))
+		self.win.resize(int(floor(float(width))),int(floor(float(height))))
 		self.win.move(config.x, config.y)
 
 		# Keep the window Updating
@@ -82,7 +84,6 @@ if __name__ == '__main__':
 	win.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DESKTOP)	
 	win.connect("destroy", lambda w: gtk.main_quit())
 
-	
 	desky = Desky(win)
 	win.add(desky)
 
