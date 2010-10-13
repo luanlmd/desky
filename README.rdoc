@@ -13,7 +13,11 @@ http://twitpic.com/1mqma5/full
 
 == Installation
 
-Just clone this project and run:
+Install the python rsvg support.
+
+  sudo aptitude install python-rsvg
+
+Then just clone this project and run:
 
   python /path/to/desky/desky.py
 
