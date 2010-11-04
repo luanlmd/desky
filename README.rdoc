@@ -1,13 +1,12 @@
 = Desky
 
-Desky is a System monitor (like Conky) for Gnome Desktop
+Desky is a System monitor (like Conky) for Gnome Desktop, with transparency support
 For now it only supports text values, but this is gonna change soon.
 
 See it working (I know it has just simple data, but can be easily enhanced):
-http://twitpic.com/1mqma5/full
+http://twitpic.com/33w73v/full
 
 == To do:
-* Add transparency support
 * Add progress bars
 * Add photo support
 
@@ -29,15 +28,11 @@ Configuration is divided in two parts: Layout and Config script.
 
 === Layout (theme.svg)
 
-Open the theme.svg with any SVG editor and modify it!
+Open the theme.svg with any SVG editor (like Inkscape) and modify it!
 You just need to take care about one thing: The object id property is the one used in the config.py. You only need to set that for the text objects that are going to have the value changed.
 
 === Config script (config.py)
 
-Edit the config.py with any text editor. (Gedit FTW)
+Edit the config.py with any text editor.
 Note that each vars[key] key is an id from the .svg file, and use that to put into that object the content you canto to.
 Use your imagination and if you need, learn some Python programming
-
-== Conclusion
-
-Simple huh?
