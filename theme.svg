@@ -14,7 +14,7 @@
    height="237.85716"
    id="svg2"
    version="1.1"
-   inkscape:version="0.47 r22583"
+   inkscape:version="0.48.0 r9654"
    sodipodi:docname="theme.svg">
   <defs
      id="defs4">
@@ -861,6 +861,25 @@
        x2="110.71429"
        y2="492.83447"
        gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5745"
+       id="linearGradient4037"
+       x1="0.7142849"
+       y1="557.005"
+       x2="268.57141"
+       y2="557.005"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5745"
+       id="linearGradient4039"
+       gradientUnits="userSpaceOnUse"
+       x1="-96.955116"
+       y1="561.29071"
+       x2="248.09235"
+       y2="558.43359"
+       gradientTransform="matrix(0.90684929,0,0,1,-0.33268104,0)" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -870,13 +889,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="334.7531"
-     inkscape:cy="68.79289"
+     inkscape:cx="112.71091"
+     inkscape:cy="154.50718"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1280"
-     inkscape:window-height="973"
+     inkscape:window-height="971"
      inkscape:window-x="0"
      inkscape:window-y="24"
      inkscape:window-maximized="1">
@@ -906,9 +925,9 @@
      id="layer1"
      transform="translate(3.5714285,-449.50504)">
     <rect
-       style="fill:#2b0000;fill-opacity:1"
+       style="fill:url(#linearGradient4039);fill-opacity:1"
        id="rect4893"
-       width="260.71426"
+       width="236.42856"
        height="237.85716"
        x="-3.5714285"
        y="449.50504" />

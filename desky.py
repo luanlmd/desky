@@ -38,13 +38,20 @@ class Desky(gtk.DrawingArea):
 		# Clean up the config var. In the next loop only new values will be reset
 		config.vars = {}
 	
+		ctx.set_operator(cairo.OPERATOR_OVER) 
 		svg = rsvg.Handle(data=self.dom.toxml())
 		svg.render_cairo(ctx)
 
-	def expose(self, win, event):
-		ctx = win.window.cairo_create()
-		self.draw(ctx)
-    
+	def expose(self, widget, event):
+		
+		cr = widget.window.cairo_create()
+
+		cr.set_operator(cairo.OPERATOR_CLEAR)
+		region = gtk.gdk.region_rectangle(event.area)
+		cr.region(region)
+		cr.fill()
+		
+		self.draw(cr)
 		return False
 		
 	def main(self):
@@ -75,13 +82,22 @@ class Desky(gtk.DrawingArea):
 			rect = gdk.Rectangle(alloc.x, alloc.y, alloc.width, alloc.height)
 			self.window.invalidate_rect(rect, True)
 		return True
-
+	
+		
 if __name__ == '__main__':
 
     # Creating window object and setting some configs
 	win = gtk.Window()
-	#win.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("blue"))
-	win.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DESKTOP)	
+
+	win.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DOCK)
+	win.set_keep_below(True)
+	win.stick()
+	
+	screen = win.get_screen()
+	rgba = screen.get_rgba_colormap()
+	win.set_colormap(rgba)
+	win.set_app_paintable(True)
+
 	win.connect("destroy", lambda w: gtk.main_quit())
 
 	desky = Desky(win)
