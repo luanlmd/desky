@@ -1,6 +1,7 @@
 from time import strftime
 import os
 import gobject
+import socket
 
 # X position of the window
 x = 0
@@ -8,31 +9,50 @@ x = 0
 # Y position of the window
 y = 250
 
+# Run shell command and clean up line breakers
+def run(command):
+	return os.popen(command).read().replace('\n','')
+
 # Config vars used to change the svg content.
 vars = {}
-vars['system'] = os.popen('uname -on').read()
+
+# This one won't change with time, so I will be kept out of a loop
+vars['system'] = run('whoami') + '@' + run('uname -n')
+
+def cpu():
+	return run("free -m | grep buffers/cache: | awk '{ print $3 }'")
+
+def ram():
+	used = run("free -m | grep buffers/cache: | awk '{ print $3 }'")
+	total = run("free -mo | grep Mem: | awk '{ print $2 }'")
+	return used + "/" + total + "mb"
+
+def swap():
+	used = run("free -mo | grep Swap: | awk '{ print $3 }'")
+	total = run("free -mo | grep Swap: | awk '{ print $2 }'")
+	return used + "/" + total + "mb"
 
 # In order to keep values changing, use this scructure. Create as many as you need
-
 def update():
 	vars['time'] = strftime("%H:%M:%S")
 	vars['ram'] = ram()
 	vars['swap'] = swap()
-
-	# Keep it running
+	#vars['cpu'] = cpu()
+	
+	# Keep gobject running
 	return True
 
-def ram():
-	used = os.popen("free -mo | grep Mem: | awk '{ print $3 }'").read().replace('\n','')
-	total = os.popen("free -mo | grep Mem: | awk '{ print $2 }'").read().replace('\n','')
-	return used + "/" + total + "mb"
+def slowerUpdate():
+	vars['uptime'] = run("uptime | awk '{ print $3 }' | sed 's/,//g'")
+	vars['localIp'] = socket.gethostbyname_ex(socket.gethostname())[2][0]
+	
+	# Keep gobject running
+	return True
 
-def swap():
-	used = os.popen("free -mo | grep Swap: | awk '{ print $3 }'").read().replace('\n','')
-	total = os.popen("free -mo | grep Swap: | awk '{ print $2 }'").read().replace('\n','')
-	return used + "/" + total + "mb"
-
+# First loop
 update()
+slowerUpdate()
 
-# Calling update() again, 1 second after its been called
-gobject.timeout_add(1000,update)
+# Run update functions over and over again
+gobject.timeout_add(1000,update) #run every second
+gobject.timeout_add(1000*60,slowerUpdate) #run every minute

@@ -14,7 +14,10 @@ class Window(gtk.Window):
 		cr.fill()
 		
 		self.draw(cr)
-			
+	
+	def draw(self):
+		pass
+	
 	def setDraw(self, function):
 		self.draw = function
 	
@@ -28,8 +31,6 @@ class Window(gtk.Window):
 		return True
 
 	def __init__(self, *args):
-	
-		self.draw = lambda:False
 	
 		gtk.Window.__init__(self, *args)
 		self.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DOCK)
