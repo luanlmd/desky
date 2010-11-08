@@ -16,7 +16,7 @@ def run(command):
 # Config vars used to change the svg content.
 vars = {}
 
-# This one won't change with time, so I will be kept out of a loop
+# This one won't change with time, so it will be kept out of a loop
 vars['system'] = run('whoami') + '@' + run('uname -n')
 
 def cpu():
