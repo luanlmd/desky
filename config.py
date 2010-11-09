@@ -6,10 +6,10 @@ import gtk
 
 # X position of the window
 # left side of screen would be '0'
-x = gtk.gdk.display_get_default().get_default_screen().get_width() - 300 #right side of the screen, 250 if the svg width
+x = gtk.gdk.display_get_default().get_default_screen().get_width() - 250 #right side of the screen, 250 if the svg width
 
 # Y position of the window
-y = 0
+y = 100
 
 # Run shell command and clean up line breakers
 def run(command):
@@ -47,6 +47,7 @@ def update():
 def slowerUpdate():
 	vars['uptime'] = run("uptime | awk '{ print $3 }' | sed 's/,//g'")
 	vars['localIp'] = socket.gethostbyname_ex(socket.gethostname())[2][0]
+	vars['date'] = run('date +%Y-%m-%d')
 	
 	# Keep gobject running
 	return True
