@@ -2,12 +2,14 @@ from time import strftime
 import os
 import gobject
 import socket
+import gtk
 
 # X position of the window
-x = 0
+# left side of screen would be '0'
+x = gtk.gdk.display_get_default().get_default_screen().get_width() - 300 #right side of the screen, 250 if the svg width
 
 # Y position of the window
-y = 250
+y = 0
 
 # Run shell command and clean up line breakers
 def run(command):
