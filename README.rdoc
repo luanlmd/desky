@@ -14,9 +14,17 @@ http://twitpic.com/35c5h9/full
 
 == Installation
 
-Install the python rsvg support.
+If you don't have git, install it with:
+
+  sudo aptitude install git-core
+
+Install the python rsvg support:
 
   sudo aptitude install python-rsvg
+
+Now clone the project:
+
+  git clone git://github.com/luanlmd/desky.git
 
 Then just clone this project and run:
 
@@ -32,12 +40,12 @@ Configuration is divided in two parts: Layout and Config script.
 
 Open the theme.svg with any SVG editor (like Inkscape) and modify it!
 
-You just need to take care about one thing: The object id property is the one used in the config.py. You only need to set that for the text objects that are going to have the value changed.
+You just need to take care about one thing: The object id property is the one used in the config.py. You need to set the id for the text objects that are going to have the value changed.
 
 === Config script (config.py)
 
 Edit the config.py with any text editor.
 
-Note that each vars[key] key is an id from the .svg file, and use that to put into that object the content you canto to.
+Note that each vars[key] key is an id from the .svg file, and use that to put into that object the content you want to.
 
 Use your imagination and if you need, learn some Python programming
