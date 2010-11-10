@@ -26,7 +26,7 @@ Now clone the project:
 
   git clone git://github.com/luanlmd/desky.git
 
-Then just clone this project and run:
+And run:
 
   python /path/to/desky/desky.py
 
