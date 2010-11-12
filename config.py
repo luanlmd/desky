@@ -4,6 +4,8 @@ import gobject
 import socket
 import gtk
 
+updateInterval = 1000
+
 # X position of the window
 # left side of screen would be '0'
 x = gtk.gdk.display_get_default().get_default_screen().get_width() - 250 #right side of the screen, 250 if the svg width

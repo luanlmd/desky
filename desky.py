@@ -5,6 +5,7 @@ import sys
 import time
 from math import floor
 import cairo
+import gobject
 
 import config
 import widget
@@ -13,7 +14,7 @@ class Desky():
 
 	def __init__(self):
 
-		win = widget.Window()
+		self.win = widget.Window()
 
 		self.dom = xml.dom.minidom.parse('%s/theme.svg' % sys.path[0])
 		
@@ -27,15 +28,23 @@ class Desky():
 		height = svge.attributes['height'].value
 		
 		# Setting window position
-		win.resize(int(floor(float(width))),int(floor(float(height))))
-		win.move(config.x, config.y)
+		self.win.resize(int(floor(float(width))),int(floor(float(height))))
+		self.win.move(config.x, config.y)
 
-		# Tell the window to draw when it run expose
-		win.setDraw(self.draw)
+		# Set the new draw function to the window
+		self.win.draw = self.draw
 		
-		win.show_all()
+		# Tell the window to update and draw
+		self.update()
+		gobject.timeout_add(config.updateInterval,self.update)
+		
+		self.win.show_all()
 		gtk.main()
-		
+	
+	def update(self):
+		self.win.update()
+		return True	
+	
 	def draw(self, cr):
 		
 		print "setting values"

@@ -4,6 +4,17 @@ import gobject
 
 class Window(gtk.Window):
 
+	def update(self):
+		# Cleaning up the window so it will call expose-event again
+		if self.window:
+			alloc = self.get_allocation()
+			rect = gtk.gdk.Rectangle(alloc.x, alloc.y, alloc.width, alloc.height)
+			self.window.invalidate_rect(rect, True)
+		return True
+
+	def draw(self):
+		pass
+
 	def expose(self, widget, event):
 		
 		# Making the window transparent
@@ -14,21 +25,6 @@ class Window(gtk.Window):
 		cr.fill()
 		
 		self.draw(cr)
-	
-	def draw(self):
-		pass
-	
-	def setDraw(self, function):
-		self.draw = function
-	
-	def update(self):
-	
-		# Cleaning up the window so it will call expose-event again
-		if self.window:
-			alloc = self.get_allocation()
-			rect = gtk.gdk.Rectangle(alloc.x, alloc.y, alloc.width, alloc.height)
-			self.window.invalidate_rect(rect, True)
-		return True
 
 	def __init__(self, *args):
 	
@@ -43,7 +39,3 @@ class Window(gtk.Window):
 		self.set_app_paintable(True)
 
 		self.connect("expose-event", self.expose)
-		
-		# Keep the window Updating every second
-		gobject.timeout_add(1000,self.update)
-	
