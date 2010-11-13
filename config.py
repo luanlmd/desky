@@ -47,6 +47,7 @@ def update():
 	return True
 
 def slowerUpdate():
+	vars['filesystem'] = run("df -h | grep ' /$' | awk '{print $6 \"    \" $3 \"/\" $4 \" (\" $5 \")\"}'")
 	vars['uptime'] = run("uptime | awk '{ print $3 }' | sed 's/,//g'")
 	vars['localIp'] = socket.gethostbyname_ex(socket.gethostname())[2][0]
 	vars['date'] = run('date +%Y-%m-%d')
