@@ -6,7 +6,7 @@ For now it only supports text values, but this is gonna change soon.
 
 See it working (I know it has just simple data, but can be easily enhanced):
 
-http://twitpic.com/35c5h9/full
+* http://dl.dropbox.com/u/478649/desky.png
 
 == To do:
 * Add progress bars
