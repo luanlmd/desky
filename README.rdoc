@@ -30,21 +30,25 @@ And run:
 
   python /path/to/desky/desky.py
 
+If you want to run it with another theme, just give the theme name as an argument like this:
+
+  python /path/to/desky/desky.py legacy
+
 To auto run it every time you log in, just add an entry in the "System > Preferences > Startup Applications" menu.
 
 == Config
 
-Configuration is divided in two parts: Layout and Config script.
+Configuration is divided in two parts: Layout and a Script.
 
 === Layout (theme.svg)
 
-Open the theme.svg with any SVG editor (like Inkscape) and modify it!
+Edit the theme.svg of a theme with any SVG editor (like Inkscape) and modify it!
 
 You just need to take care about one thing: The object id property is the one used in the config.py. You need to set the id for the text objects that are going to have the value changed.
 
-=== Config script (config.py)
+=== Config script (script.py)
 
-Edit the config.py with any text editor.
+Each theme has a script.py inside its folder, you can edit it with any text editor.
 
 Note that each vars[key] key is an id from the .svg file, and use that to put into that object the content you want to.
 
