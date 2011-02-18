@@ -8,10 +8,6 @@ For now it only supports text values, but this is gonna change soon.
 
 http://dl.dropbox.com/u/478649/desky2.png
 
-== Legacy theme
-
-http://dl.dropbox.com/u/478649/desky.png
-
 == To do:
 * Add progress bars
 * Add photo support
@@ -32,11 +28,7 @@ Now clone the project:
 
 And run:
 
-  python /path/to/desky/desky.py
-
-If you want to run it with another theme, just give the theme name as an argument like this:
-
-  python /path/to/desky/desky.py legacy
+  /path/to/desky/desky.sh
 
 To auto run it every time you log in, just add an entry in the "System > Preferences > Startup Applications" menu.
 
