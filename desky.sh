@@ -1,7 +1,9 @@
 #! /bin/bash
+
+MYPATH="${0%/*}"
 THEME=$1
 if [ -z "$THEME" ]
 then
 	THEME="default"
 fi   
-python $THEME/desky.py
+python $MYPATH/$THEME/desky.py
