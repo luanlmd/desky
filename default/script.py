@@ -8,7 +8,7 @@ updateInterval = 1000
 
 # X position of the window
 # left side of screen would be '0'
-x = gtk.gdk.display_get_default().get_default_screen().get_width() - 250 #right side of the screen, 250 if the svg width
+x = gtk.gdk.display_get_default().get_default_screen().get_width() - 2250 #right side of the screen, 250 if the svg width
 
 # Y position of the window
 y = 100
@@ -27,13 +27,13 @@ def cpu():
 	return run("free -m | grep buffers/cache: | awk '{ print $3 }'")
 
 def ram():
-	used = run("free -m | grep buffers/cache: | awk '{ print $3 }'")
-	total = run("free -mo | grep Mem: | awk '{ print $2 }'")
+	used = run("free -m | grep Mem: | awk '{ print $3 }'")
+	total = run("free -m | grep Mem: | awk '{ print $2 }'")
 	return used + "/" + total + "mb"
 
 def swap():
-	used = run("free -mo | grep Swap: | awk '{ print $3 }'")
-	total = run("free -mo | grep Swap: | awk '{ print $2 }'")
+	used = run("free -m | grep Swap: | awk '{ print $3 }'")
+	total = run("free -m | grep Swap: | awk '{ print $2 }'")
 	return used + "/" + total + "mb"
 
 # In order to keep values changing, use this scructure. Create as many as you need

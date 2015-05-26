@@ -6,4 +6,4 @@ if [ -z "$THEME" ]
 then
 	THEME="default"
 fi   
-python $MYPATH/$THEME/desky.py
+python2 $MYPATH/$THEME/desky.py
